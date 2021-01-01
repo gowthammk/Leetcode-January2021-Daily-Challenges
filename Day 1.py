@@ -43,3 +43,10 @@
 # The integers in pieces are distinct (i.e., If we flatten pieces in a 1D array,
 # all the integers in this array are distinct).
 
+class Solution:
+    def canFormArray(self, arr: List[int], pieces: List[List[int]]) -> bool:
+        mapping = {piece[0]: piece for piece in pieces}
+        result = []
+        for number in arr:
+            result += mapping.get(number, [])
+        return result == arr
